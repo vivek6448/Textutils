@@ -43,15 +43,15 @@ export default function TextForm(Props) {
     
     <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: Props.mode==='dark'? 'grey':'white',color: Props.mode==='dark'? 'white':'#060617'}} id="mybox" rows="8"></textarea>
   </div>
-  <button className="btn btn-primary mx-1" onClick={handleUpClick}>convert into UpperCase</button>
-  <button className="btn btn-primary mx-1" onClick={handleLoClick}>convert into LowerCase</button>
-  <button className="btn btn-primary mx-1" onClick={handleClearClick}>clear text</button>
-  <button className="btn btn-primary mx-1" onClick={handleCopyClick} >Copy Text </button>
-  <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra spaces</button>
+  <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>convert into UpperCase</button>
+  <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>convert into LowerCase</button>
+  <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>clear text</button>
+  <button className="btn btn-primary mx-1 my-1" onClick={handleCopyClick} >Copy Text </button>
+  <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra spaces</button>
   </div>
   <div className="container my-3" style={{color: Props.mode==='dark'? 'white':'#060617'}}>
     <h1>Summary</h1>
-    <p>{text.split(" ").length} words and {text.length} character</p>
+    <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} character</p>
     <p>{0.008*text.split(" ").length} Minutes</p>
     <h2>Preview</h2>
     <p>{text.length>0?text: "Enter the text into the textboc above to preview it here"}</p>
